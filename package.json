@@ -1,0 +1,16 @@
+{
+  "name": "EmployeeOrgApp",
+  "version": "1.0.0",
+  "description": "- We can able to update the data in the `data.ts` file. - We can able to edit code in `index.ts` to validate different scenarios. - We can able to see the output in the console with the petrified view of JSON.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
