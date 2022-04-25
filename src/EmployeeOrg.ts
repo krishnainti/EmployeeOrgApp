@@ -7,17 +7,21 @@ export class EmployeeOrgApp extends EmployeeOrgBase implements IEmployeeOrgApp {
   }
 
   move(employeeId: number, supervisorID: number): void {
-    this.parentEmployee = null;
     this.movingEmployee = null;
-    this.movingEmpSubordinates = [];
+
+    let employeeParent = this.getParent(employeeId);
 
     this.movePosition(employeeId, supervisorID);
 
+    const subordinateIds = employeeParent.subordinates
+      .find((employee) => employee.uniqueId === employeeId)
+      ?.subordinates?.map((i) => i.uniqueId);
+
     this.undos.push({
-      fromId: this.parentEmployee.uniqueId,
+      fromId: employeeParent.uniqueId,
       employeeId,
       toId: supervisorID,
-      subordinateIds: this.movingEmpSubordinates.map((item) => item.uniqueId),
+      subordinateIds,
     });
   }
 

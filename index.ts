@@ -4,9 +4,13 @@ import { EmployeeOrgData } from "./src/data";
 const app = new EmployeeOrgApp(EmployeeOrgData);
 
 // Test 1
-// app.move(12, 5);
-// app.undo();
-// app.redo();
+console.time("test1");
+
+app.move(12, 5);
+app.undo();
+app.redo();
+
+console.timeEnd("test1");
 
 // Test 2
 /* 
